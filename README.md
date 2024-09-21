@@ -5,7 +5,7 @@ Named after the messenger, this project is an open source self hostable alternat
 ## Installation
 Running the server would require Maven as it is written in Spring Boot and compiled in maven (a better installation method will be available soon). Use the following command to start the server. First go inside the directory containing the code
 ```bash
-    ./mvnw spring-boot:run
+./mvnw spring-boot:run
 ```
 
 This will run the server at port 8080.
@@ -14,18 +14,22 @@ This will run the server at port 8080.
 When you run the server it can then be used via the Client, like the example below.
 
 ```javascript
-    import Client from "../client-path"
-    
-    // Instantiates the client and connects it to localhost:8080and connects the user to a room called secureRoom
-    const client = new Client("localhost:8080", "secureRoom")
-    
-    // Starts the connection and listens for incoming messages on "secureRoom"
-    client.start(function(data) {
-        // logs the content of the data coming in
-        console.log(data.content)
-    })
+// you could also just import it in your html instead
+import Client from "../client-path"
 
-    client.send("Hey!")
+// Instantiates the client and connects it to localhost:8080and connects the user to a room called secureRoom
+const client = new Client("localhost:8080", "secureRoom")
+
+// Starts the connection and listens for incoming messages on "secureRoom"
+client.start(function(data) {
+    // logs the content of the data coming in
+    console.log(data.content)
+})
+
+client.send("Hey!")
 
     
 ```
+
+## Contribution
+Since ArchGabriel Server is technically a Spring microservice, you can submit your PRs on this repo and I'll review them, just be sure to use tabs instead of spaces in your code.
