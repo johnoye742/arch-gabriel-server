@@ -14,8 +14,8 @@ import java.util.Set;
 public class WebSocketConfig implements WebSocketConfigurer {
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(new TextMessageHandler(), "/chat")
+        registry.addHandler(new TextMessageHandler(), "/chat/**")
                 .addInterceptors(new HttpSessionHandshakeInterceptor())
-                .setAllowedOrigins("http://localhost:8000");
+                .setAllowedOrigins("http://localhost:2910", "http://localhost:8000");
     }
 }
